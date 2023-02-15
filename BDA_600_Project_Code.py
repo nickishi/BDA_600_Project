@@ -41,7 +41,7 @@ def main():
         ticker = input("Enter a ticker: ")
         ticker_upper = ticker.upper()
         data = api_call(ticker_upper)
-        #create_graphs(data, ticker_upper)
+        create_graphs(data, ticker_upper)
 
 
 
