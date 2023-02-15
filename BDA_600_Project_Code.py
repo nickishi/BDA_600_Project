@@ -10,7 +10,7 @@ from alpha_vantage.timeseries import TimeSeries
 def create_graphs(data, ticker):
     
     
-    df2["4. close"].plot()
+    df2["4. adjusted close"].plot()
     plt.title("Stock Price of " + ticker + " from 2020 to end of 2022")
     plt.tight_layout()
     plt.grid()
@@ -24,7 +24,7 @@ def api_call(ticker):
 
     ts = TimeSeries(key, output_format = "pandas")
     
-    comp_data , comp_meta_data = ts.get_daily(symbol = ticker, outputsize='full')
+    comp_data , comp_meta_data = ts.get_daily_adjusted(symbol = ticker, outputsize='full')
     print(comp_data)
     fig = plt.figure(dpi = 80, facecolor = "w", edgecolor = "k")
     print(comp_meta_data)
