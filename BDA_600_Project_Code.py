@@ -9,29 +9,51 @@ from alpha_vantage.timeseries import TimeSeries
 
 def create_graphs(data, ticker):
     
-    
+    fig = plt.figure(dpi = 80, facecolor = "w", edgecolor = "k")
     data["5. adjusted close"].plot()
     plt.title("Stock Price of " + ticker + " from 2020 to end of 2022")
     plt.tight_layout()
     plt.grid()
     plt.show()
 
+def create_save_graphs(data, ticker):
+    fig = plt.figure(dpi = 80, facecolor = "w", edgecolor = "k")
+    data["5. adjusted close"].plot()
+    plt.title("Stock Price of " + ticker + " from 2020 to end of 2022")
+    plt.tight_layout()
+    plt.grid()
+    plt.savefig(ticker + "_stock_price_2020_2022.png")
+    print(ticker + " Graph saved")
 
 
-
-def api_call(ticker):
+def api_call(ticker_str = None, ticker_list = None):
     key = "4UGW7JB0G6QNPFPM"
 
     ts = TimeSeries(key, output_format = "pandas")
-    try:
-        comp_data , comp_meta_data = ts.get_daily_adjusted(symbol = ticker, outputsize='full')
-        print(comp_data)
-        fig = plt.figure(dpi = 80, facecolor = "w", edgecolor = "k")
-        print(comp_meta_data)
+
+    if ticker_str != None:
+        
+           
+        comp_data , comp_meta_data = ts.get_daily_adjusted(symbol = ticker_str, outputsize='full')
+  
         df2 = comp_data.loc["20200101" : "20221231"]
         create_graphs(df2, ticker)
-    except:
-        print("Invalid Ticker: " + ticker)
+
+            
+            
+                #print("1")
+                #print("Invalid Ticker: " + company)
+
+
+    elif ticker_list != None:
+        for company in ticker_list:
+            print(company)
+            comp_data, comp_meta_data = ts.get_daily_adjusted(symbol = company, outputsize = "full")
+            df2 = comp_data.loc["20200101" : "20221231"]
+            create_save_graphs(df2, company)
+        
+            #print("2")
+            #print("Invalid Ticker: " + ticker)
 
     
 
@@ -42,8 +64,19 @@ def main():
     exit = "yes"
     while exit == "yes":
         ticker = input("Enter a ticker: ")
-        ticker_upper = ticker.upper()
-        data = api_call(ticker_upper)
+        print(ticker, "HELLLLOOOOOOOO")
+        if ticker.upper() == "LIST":
+            ###INSERT TICKERS INTO LIST AS STRINGS
+            print("1")
+            list_of_companies = ["AAPL", "XOM"]
+            api_call(ticker_str = None, ticker_list = list_of_companies)
+            
+        else:
+            print("2")
+            api_call(ticker_str = ticker, ticker_list = None)
+            
+        #ticker_upper = ticker.upper()
+        #data = api_call(ticker_upper)
         #create_graphs(data, ticker_upper)
         exit = input("Do you want to search another company (yes/no): ")
 
