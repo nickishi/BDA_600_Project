@@ -7,6 +7,8 @@ import pandas as pd
 import math
 from alpha_vantage.timeseries import TimeSeries
 import time
+import subprocess
+import sys
 
 
 # SecML
@@ -37,7 +39,8 @@ def api_call_company(ticker_str):
 
     comp_data, comp_meta_data = ts.get_monthly_adjusted(symbol=ticker_str, outputsize='full')
 
-    df2 = comp_data.loc["20200101": "20221231"]
+    df2 = comp_data.loc["20200131": "20221231"]
+
 
     print(df2)
 
@@ -54,19 +57,45 @@ def api_call_list(ticker_list):
     ts = TimeSeries(key, output_format="pandas")
 
     for company in ticker_list:
-        print(company)
-        comp_data_csv, comp_meta_data = ts.get_monthly_adjusted(symbol=company)
-        with open(company+"_data_2020_2022.csv", "w") as file:
-            writer = csv.writer(file, dialect='excel')
-            for row in comp_data_csv:
-                writer.writerow(row)
-        with open("all_tickers_2020_2022.csv", "a+") as file, open(company+"_data_2020_2022.csv", "r") as file2:
 
-            reader = csv.reader(file2)
-            next(reader)
-            for row in reader:
+        comp_data, comp_meta_data = ts.get_monthly_adjusted(symbol=company)
+        df2 = comp_data.loc["20200131": "20221231"]
+        df2 = df2.loc[:, ["timestamp", "adjusted close"]]
 
-            writer = csv.writer(file, delimiter=" ")
+        for row in df2.itertuples(index = True, name = "timestamp"):
+            pass
+
+
+
+
+
+
+    # with open("all_tickers_2020_2022.csv", "w") as file:
+    #     writer = csv.writer(file)
+    #     writer.writerow(["Company Ticker", df2.iloc[0]])
+
+    # for company in ticker_list:
+    #     print(company)
+    #     comp_data, comp_meta_data = ts.get_monthly_adjusted(symbol=company)
+    #     comp_data.to_csv(company+"_data_2020_2022.csv", sep="\t", encoding='utf-8')
+    #
+    #
+    #
+    #     with open("all_tickers_2020_2022.csv", "a+") as file, open(company+"_data_2020_2022.csv", "r") as file2:
+    #         temp_dates = []
+    #         temp_adj_price = []
+    #
+    #         writer = csv.writer(file, dialect = "excel")
+    #         reader = csv.reader(file2)
+    #         next(reader)
+    #         for row in reader:
+    #             temp_dates.append(row[0])
+    #             temp_adj_price.append(row[5])
+    #
+    #         writer.writerow([company, ])
+
+
+
 
 
 
@@ -94,4 +123,6 @@ def main():
 
 
 if __name__ == "__main__":
+
+
     main()
