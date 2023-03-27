@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="995fafee-c792-4150-b217-2a9abf56242e" name="Changes" comment="Updated with new python file &quot;BDA_600_Project_Code_Redux&quot; because other code was not working properly.">
+      <change afterPath="$PROJECT_DIR$/graphing_eps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BDA_600_Project_Code_Redux.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDA_600_Project_Code_Redux.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
