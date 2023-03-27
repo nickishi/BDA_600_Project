@@ -78,6 +78,7 @@ def main():
     #List of tickers
     ticker_list = ["AAPL", "MSFT", "NVDA", "UNH", "JNJ", "MRK", "RTX", "HON", "UPS", "BRK.B", "JPM", "BAC"]
 
+    #TODO: Using for testing purposes. Delete after final for loop below is finished.
     get_stock_price("AAPL")
 
     #for ticker in ticker_list:
