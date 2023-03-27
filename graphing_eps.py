@@ -13,7 +13,27 @@ import os.path
 from datetime import datetime, timedelta
 
 
+def get_stock_price(ticker, date_range):
+    """This function uses the ticker and date range
+        to pull the daily stock prices before and after
+        an earnings release. Final numbers returned is
+        the percentage increase or decrease 2 days before
+        and 2 days after the EPS release."""
+
+    key = "4UGW7JB0G6QNPFPM"
+
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=' + ticker + '&apikey=' + key
+    r = requests.get(url)
+    data = r.json()
+
+
+
+
 def get_eps(ticker):
+    """This function pulls the date and Earnings Per Share (EPS) percentage change
+        for a given stock. Positive EPS generally indicates an increase in stock price
+        and vice versa for negative EPS"""
+
     key = "4UGW7JB0G6QNPFPM"
 
 
@@ -23,6 +43,7 @@ def get_eps(ticker):
 
     print(json.dumps(data, indent = 4))
 
+    #Pulls just the quarterly earnings of a given ticker
     quart_data = data['quarterlyEarnings']
 
     #Needed data is formatted as 2-D list, inner lists are [Earnings report data, percentage differnce in reported and estimated EPS]
@@ -30,6 +51,8 @@ def get_eps(ticker):
     date_range = []
     start_date = datetime(2020, 1, 1)
     end_date = datetime(2022, 12, 31)
+
+    #
     for point in quart_data:
         temp_list = []
 
@@ -43,12 +66,12 @@ def get_eps(ticker):
 
 def main():
 
+    #List of tickers
     ticker_list = ["AAPL", "MSFT", "NVDA", "UNH", "JNJ", "MRK", "RTX", "HON", "UPS", "BRK.B", "JPM", "BAC"]
 
-    get_eps(ticker_list[0])
     for ticker in ticker_list:
 
-        pass
+        needed_data, date_range = get_eps(ticker)
 
 
 
