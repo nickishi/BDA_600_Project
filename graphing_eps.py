@@ -13,7 +13,7 @@ import os.path
 from datetime import datetime, timedelta
 
 
-def get_stock_price(ticker, date_range):
+def get_stock_price(ticker, date_range = None):
     """This function uses the ticker and date range
         to pull the daily stock prices before and after
         an earnings release. Final numbers returned is
@@ -25,8 +25,17 @@ def get_stock_price(ticker, date_range):
     url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=' + ticker + '&apikey=' + key
     r = requests.get(url)
     data = r.json()
+    #print(json.dumps(data, indent=4))
+    ts_data = data["Time Series (Daily)"]
+    start_date = datetime(2020, 1, 1)
+    end_date = datetime(2022, 12, 31)
+    print(json.dumps(ts_data, indent = 4))
 
+    #TODO: Use for loop to find two days before and two days after percentage change of EPS.
+    for point in ts_data:
+        if start_date <= datetime.strptime(point, '%Y-%m-%d') <= end_date:
 
+            print(point)
 
 
 def get_eps(ticker):
@@ -69,9 +78,11 @@ def main():
     #List of tickers
     ticker_list = ["AAPL", "MSFT", "NVDA", "UNH", "JNJ", "MRK", "RTX", "HON", "UPS", "BRK.B", "JPM", "BAC"]
 
-    for ticker in ticker_list:
+    get_stock_price("AAPL")
 
-        needed_data, date_range = get_eps(ticker)
+    #for ticker in ticker_list:
+
+        #needed_data, date_range = get_eps(ticker)
 
 
 

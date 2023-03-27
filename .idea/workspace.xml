@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="995fafee-c792-4150-b217-2a9abf56242e" name="Changes" comment="graphing_eps.py pulls the date and percentage difference in the Earnings Per Share (EPS) for the companies in the ticker list">
+    <list default="true" id="995fafee-c792-4150-b217-2a9abf56242e" name="Changes" comment="Added get_stock_price function that will get the daily adjusted close price for each day. Will use this to find the stock price before and the EPS release.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BDA_600_Project_Code_Redux.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDA_600_Project_Code_Redux.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphing_eps.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphing_eps.py" afterDir="false" />
@@ -69,12 +69,20 @@
       <option name="project" value="LOCAL" />
       <updated>1679879164065</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="graphing_eps.py pulls the date and percentage difference in the Earnings Per Share (EPS) for the companies in the ticker list">
+      <created>1679881196806</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679881196806</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated with new python file &quot;BDA_600_Project_Code_Redux&quot; because other code was not working properly." />
     <MESSAGE value="graphing_eps.py pulls the date and percentage difference in the Earnings Per Share (EPS) for the companies in the ticker list" />
-    <option name="LAST_COMMIT_MESSAGE" value="graphing_eps.py pulls the date and percentage difference in the Earnings Per Share (EPS) for the companies in the ticker list" />
+    <MESSAGE value="Added get_stock_price function that will get the daily adjusted close price for each day. Will use this to find the stock price before and the EPS release." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added get_stock_price function that will get the daily adjusted close price for each day. Will use this to find the stock price before and the EPS release." />
   </component>
 </project>
