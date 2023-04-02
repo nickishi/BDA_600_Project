@@ -10,7 +10,7 @@ import time
 import subprocess
 import sys
 import os.path
-
+from datetime import datetime, timedelta
 # SecML
 
 def create_graphs(data, ticker):
@@ -84,9 +84,21 @@ def api_call_list(ticker_list):
 
 
 
+def timeframe():
 
+    start_date = datetime(2023, 3, 31)
 
+    # Define the date range
+    date_range = []
+    for i in range(-2, 3):
+        date_range.append(start_date + timedelta(days=i))
 
+    # Print the date range
+    print(date_range)
+
+def get_eps(ticker):
+
+    
 
     # with open("all_tickers_2020_2022.csv", "w") as file:
     #     writer = csv.writer(file)
@@ -110,12 +122,7 @@ def api_call_list(ticker_list):
     #             temp_dates.append(row[0])
     #             temp_adj_price.append(row[5])
     #
-    #         writer.writerow([company, ])
-
-
-
-
-
+    #         writer.writerow([company, ]
 
 def main():
     print("Hello World")
@@ -142,5 +149,6 @@ def main():
 
 if __name__ == "__main__":
 
+    timeframe()
 
     main()
