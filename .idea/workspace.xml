@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="995fafee-c792-4150-b217-2a9abf56242e" name="Changes" comment="Starting the for loop to calculate the EPS percentage before and after the report date">
+    <list default="true" id="995fafee-c792-4150-b217-2a9abf56242e" name="Changes" comment="stock_price_eps_graph function shows a graph of the stock data and vertical lines to designate eps date.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphing_eps.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphing_eps.py" afterDir="false" />
     </list>
@@ -36,7 +36,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/AI Lab/DHS_Hololens/BDA_600_Project&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mcish/PycharmProjects/mis_797_project&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -97,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680459152405</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="stock_price_eps_graph function shows a graph of the stock data and vertical lines to designate eps date.">
+      <created>1680466488395</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680466488395</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -105,6 +112,7 @@
     <MESSAGE value="graphing_eps.py pulls the date and percentage difference in the Earnings Per Share (EPS) for the companies in the ticker list" />
     <MESSAGE value="Added get_stock_price function that will get the daily adjusted close price for each day. Will use this to find the stock price before and the EPS release." />
     <MESSAGE value="Starting the for loop to calculate the EPS percentage before and after the report date" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting the for loop to calculate the EPS percentage before and after the report date" />
+    <MESSAGE value="stock_price_eps_graph function shows a graph of the stock data and vertical lines to designate eps date." />
+    <option name="LAST_COMMIT_MESSAGE" value="stock_price_eps_graph function shows a graph of the stock data and vertical lines to designate eps date." />
   </component>
 </project>
